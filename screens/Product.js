@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     View,
     Text,
@@ -6,6 +6,9 @@ import {
     TouchableOpacity,
     TextInput,
     Image,
+    FlatList,
+    StyleSheet,
+
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,6 +33,11 @@ const images = [
 ]
 
 export default function ProductScreen({ navigation }) {
+
+    const [color, setColor] = useState('');
+    const [size, setSize] = useState('');
+
+
     const _renderItem = ({ item }) => {
         return (
             <Image
@@ -122,13 +130,175 @@ export default function ProductScreen({ navigation }) {
                 </View>
             </View>
             <View style={{
-                paddingHorizontal: 20, marginBottom: 12, paddingTop: 12,
-                borderTopWidth: 6, borderColor: "#ccc",
+                paddingHorizontal: 20, marginTop: 12, paddingVertical: 20,
+                borderTopWidth: 6, borderBottomWidth: 6, borderColor: "#ccc",
             }}>
                 <Text style={{
-                    
-                }}>Description Product</Text>
+                    fontSize: 16, fontWeight: 'bold',
+                }}>
+                    Description Product
+                </Text>
+                <Text style={{
+                    marginTop: 4,
+                    color: "#666",
+                }}>
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                </Text>
+            </View>
+            <View style={{
+                paddingHorizontal: 20, paddingVertical: 20,
+                borderBottomWidth: 6, borderColor: "#ccc",
+            }}>
+                <Text style={{
+                    marginBottom: 12,
+                    fontSize: 16, fontWeight: 'bold',
+                }}>
+                    Variant Color
+                </Text>
+                <FlatList
+                    horizontal
+                    data = {['White', 'Blue', 'Red']}
+                    renderItem = {({ item })=> (
+                        <TouchableOpacity
+                            onPress = {() => setColor(item)}
+                            style={styler.btnColor(color, item)}    
+                        >
+                            <Text style={styler.textColor(color, item)}>{item}</Text>
+                        </TouchableOpacity>
+                    )}
+                />
+                <Text style={{
+                    marginVertical: 12,
+                    fontSize: 16, fontWeight: 'bold',
+                }}>
+                    Size
+                </Text>
+                <FlatList 
+                    horizontal
+                    data = {[36,37,38,39,40,41]}
+                    renderItem = {({ item })=>(
+                        <TouchableOpacity
+                            onPress = {()=>setSize(item)}
+                            style={styler.btnSize(size, item)}
+                        >
+                            <Text style = {styler.textSize(size, item)}>{item}</Text>
+                        </TouchableOpacity>
+                    )}
+                />
+            </View>
+            <View style={{
+                paddingHorizontal: 20, marginTop: 0, paddingVertical: 20,
+                // borderTopWidth: 6, borderBottomWidth: 6, borderColor: "#ccc",
+            }}>
+                <Text style={{
+                    marginBottom: 20,
+                    fontSize: 18, fontWeight: 'bold',
+                }}>
+                    Similar Product
+                </Text>
+                <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        data={[1, 1, 1]}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity style={styler.itemArrival}>
+                                <Image
+                                    source={require('../assets/img/shirtwomen3.jpg')}
+                                    style={styler.imageItemArrival}
+                                />
+                                <View style={styler.containerItemArrival}>
+                                    <Text style={styler.titleItemArrival}>ZARA Hadid Tracksuit</Text>
+                                    <Text style={styler.priceItemArrival}>
+                                        $ 500.000
+                                    </Text>
+                                    <Text style={styler.rateItemArrival}>
+                                        {staricon} 4.9   400 sold
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        )}
+                    />
+            </View>
+            <View style={{
+                paddingHorizontal: 20, marginVertical: 6, paddingVertical: 20,
+                flexDirection: 'row', justifyContent: 'space-around',
+            }}>
+                <TouchableOpacity style={styler.btnTool}>
+                    <Ionicons name ="chatbox-outline" size={28} color='rgba(160, 120, 36, 1)'/>
+                </TouchableOpacity>
+                <TouchableOpacity style={styler.btnTool}>
+                    <Ionicons name ="cart-outline" size={28} color='rgba(160, 120, 36, 1)'/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{
+                    justifyContent: 'center', alignItems: 'center',
+                    width: 250,
+                    backgroundColor: 'rgba(55, 82, 70, 1)',
+                    borderRadius: 12,
+                }}>
+                    <Text style={{
+                        color: '#eee', fontWeight: 'bold', fontSize: 20,
+                    }}>
+                        Order Now
+                    </Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );
 }
+
+const styler = StyleSheet.create({
+    btnColor: (color, item) => ({
+        paddingHorizontal: 10, paddingVertical: 6, marginRight: 6,
+        borderRadius: 4, borderWidth: 1.6, 
+        borderColor: color === item ? "rgba(160, 120, 36, 1)" : "#ddd",
+    }),
+    textColor: (color, item) => ({
+        fontSize: 14, fontWeight: 'bold',
+        color: color === item ? "rgba(160, 120, 36, 1)" : "#666",
+    }),
+    btnSize: (size, item) => ({
+        paddingHorizontal: 10, paddingVertical: 6, marginRight: 6,
+        borderRadius: 4, borderWidth: 1.6, 
+        borderColor: size === item ? "rgba(160, 120, 36, 1)" : "#ddd",
+    }),
+    textSize: (size, item) => ({
+        fontSize: 14, fontWeight: 'bold',
+        color: size === item ? "rgba(160, 120, 36, 1)" : "#666",
+    }),
+    itemArrival: {
+        marginRight: 24, paddingBottom: 6,
+        width: 180, height: 256,
+        borderRadius: 6,
+        overflow: 'hidden',
+        shadowColor: "#888",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22, shadowRadius: 2.22,
+        elevation: 1,
+    },
+    imageItemArrival: {
+        resizeMode: 'cover', width: 180, height: 180,
+    },
+    containerItemArrival: {
+        marginTop: 6, paddingLeft: 6,
+    },
+    titleItemArrival: {
+        fontWeight: 'bold', color: '#222',
+    },
+    priceItemArrival: {
+        alignItems: 'center',
+        marginVertical: 4,
+        fontSize: 16, fontWeight: 'bold',
+    },
+    rateItemArrival: {
+        color: '#666',
+    },
+    btnTool: {
+        padding: 8,
+        borderWidth: 1, borderColor: 'rgba(160, 120, 36, 1)', borderRadius: 8,      
+    },
+})
+
+const staricon = <Ionicons name='star' color='rgba(255, 215, 0, 1)' />
