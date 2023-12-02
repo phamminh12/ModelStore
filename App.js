@@ -20,6 +20,10 @@ import NewArrivalScreen from './screens/NewArrival';
 import BestSellerScreen from './screens/BestSeller';
 import SearchScreen from './screens/Search';
 import ProductScreen from './screens/Product';
+import CheckoutScreen from './screens/Checkout';
+import DetailsCardScreen from './screens/DetailsCard';
+import PaymentCardScreen from './screens/PaymentCard';
+import ShippingInfoScreen from './screens/ShippingInfo';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -69,7 +73,7 @@ function Home() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Product" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="ShippingInfo" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Slide" component={SlideScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
@@ -80,6 +84,10 @@ export default function App() {
         <Stack.Screen name="BestSeller" component={BestSellerScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="Product" component={ProductScreen} />
+        <Stack.Screen name="Checkout" component={CheckoutScreen}/>
+        <Stack.Screen name="DetailsCard" component={DetailsCardScreen}/>
+        <Stack.Screen name="PaymentCard" component={PaymentCardScreen}/>
+        <Stack.Screen name="ShippingInfo" component={ShippingInfoScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
 
