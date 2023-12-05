@@ -2,13 +2,386 @@ import React from 'react';
 import {
     View,
     Text,
+    Image,
+    TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function CartScreen({ navigation }){
     return(
-        <View>
-            <Text>Cart</Text>
+        <View style={{
+            flex:1,
+            paddingHorizontal:16 ,
+        }}>
+            <View style={{
+                flexDirection: 'row',
+                marginTop: 30,
+                justifyContent: 'space-between',
+                width: '92%',
+                marginLeft: 20
+            }}>
+                <Text style={{
+                    fontSize: 19,
+                    fontWeight: 700,
+                }}>
+                    Cart
+                </Text>
+                <TouchableOpacity style={{
+
+                }}>
+                    <Ionicons
+                        name="heart"
+                        color="red"
+                        size={28}
+
+                    />
+                </TouchableOpacity>
+            </View>
+            <View style={{
+                marginBottom: 20,
+            }}></View>
+            <View style={{
+                width:'100%',
+                flexDirection:'row',
+                justifyContent:'space-between',
+                borderBottomWidth:4,
+                borderBottomColor:'#EFEFF0'
+
+            }}>
+                <View style={{
+                    flexDirection:'row',
+                    paddingHorizontal:20
+                }}>
+                    <TouchableOpacity style={{
+                        marginRight:10,
+                    }}>
+                        <Ionicons 
+                        name='checkbox-outline'
+                        size={22}
+                        color={'#C9B686'}
+                        
+                        />
+                    </TouchableOpacity>
+                    <Text>
+                    Select All
+                    </Text>
+                </View>
+                <View style={{
+                    marginRight:20,
+                    marginBottom:20,
+                }}> 
+                    <Text style={{
+                        fontSize:17,
+                        fontWeight:'bold',
+                        color:'red',
+                        
+                    }}>
+                        Delete All
+                    </Text>
+                </View>
+               
+
+            </View>
+            {/* img */}
+            <View style={{
+                
+               marginTop:20,
+                width:'90%'
+            }}>
+                <View style={{
+                    flexDirection:'row',
+                    marginLeft:22,
+                    
+                }}> 
+                <TouchableOpacity style={{
+                       
+                    }}>
+                        <Ionicons 
+                        name='checkbox-outline'
+                        size={22}
+                        color={'#C9B686'}
+                        
+                        />
+                    </TouchableOpacity>
+                    <Image source={require('../assets/img/shirtwomen3.jpg')} style={{
+                        resizeMode:'contain',
+                        width:100,
+                        height:100,
+                        marginHorizontal:20,
+
+                    }}/>
+                    <View style={{
+                        width:'70%'
+                    }}>
+                        <Text style={{
+                            fontSize:16,
+                            fontWeight:600,
+                            height:46,
+                        }}>
+                        Ripped Jeans - Hopped Bean London Limited Edition
+                        </Text>
+                        <Text style={{
+                            color:'#888',
+                            height:30,
+                        }}>
+                        Space Grey (36)
+                        </Text>
+                        <Text style={{
+                            color:'#333',
+                            fontSize:19,
+
+                        }}>
+                        $ 500.000
+                        </Text>
+                    </View>
+
+                </View>
+                <View style={{
+                    flexDirection:'row',
+                    justifyContent:'space-between',
+                    marginTop:15,
+                    marginBottom:25,
+                }}>
+                        <View style={{
+                            flexDirection:'row',
+                            
+
+                        }}>
+                            <Text style={{
+                                color:'#c2c2c1',
+                                fontSize:19,
+                                marginLeft:65,
+                            }}>
+                              Quantity : 
+                            </Text>
+                            <Text style={{
+                                fontSize:19,
+                                fontWeight:700,
+                            }}>1</Text>
+                        </View>
+                        <View style={{
+                            flexDirection:'row',
+                            width:100,
+                            height:30,
+                            backgroundColor:'#c2c2c6',
+                            
+                            justifyContent:'center',
+                            alignItems:'center',
+                            borderRadius:10,
+                            marginRight:-25,
+                        }}>
+                            <TouchableOpacity style={{
+                                paddingHorizontal:10,
+                                
+                            }}>
+                                    <Text style={{
+                                        fontSize:20,
+                                    }}>
+                                        --
+                                    </Text>
+                            </TouchableOpacity>
+                                <Text style={{
+                                     fontSize:20,
+                                     color:'#94949e'
+                                }}> | </Text>
+                            <TouchableOpacity style={{
+                                paddingHorizontal:10,
+                            }}>
+                                    <Text style={{
+                                         fontSize:20,
+                                    }}>
+                                        +
+                                    </Text>
+                            </TouchableOpacity>
+
+                        </View>
+                </View>
+            </View>
+            {/* img1 */}
+            {/* img2 */}
+            <View style={{
+                
+                
+                width:'90%'
+            }}>
+                <View style={{
+                    flexDirection:'row',
+                    marginLeft:22,
+                    
+                }}> 
+                <TouchableOpacity style={{
+                       
+                    }}>
+                        <Ionicons 
+                        name='checkbox-outline'
+                        size={22}
+                        color={'#C9B686'}
+                        
+                        />
+                    </TouchableOpacity>
+                    <Image source={require('../assets/img/shirtwomen3.jpg')} style={{
+                        resizeMode:'contain',
+                        width:100,
+                        height:100,
+                        marginHorizontal:20,
+
+                    }}/>
+                    <View style={{
+                        width:'70%'
+                    }}>
+                        <Text style={{
+                            fontSize:16,
+                            fontWeight:600,
+                            height:46,
+                        }}>
+                        Ripped Jeans - Hopped Bean London Limited Edition
+                        </Text>
+                        <Text style={{
+                            color:'#888',
+                            height:30,
+                        }}>
+                        Space Grey (36)
+                        </Text>
+                        <Text style={{
+                            color:'#333',
+                            fontSize:19,
+
+                        }}>
+                        $ 500.000
+                        </Text>
+                    </View>
+
+                </View>
+                <View style={{
+                    flexDirection:'row',
+                    justifyContent:'space-between',
+                    marginTop:15,
+                    marginBottom:25,
+                }}>
+                        <View style={{
+                            flexDirection:'row',
+                            
+
+                        }}>
+                            <Text style={{
+                                color:'#c2c2c1',
+                                fontSize:19,
+                                marginLeft:65,
+                            }}>
+                              Quantity : 
+                            </Text>
+                            <Text style={{
+                                fontSize:19,
+                                fontWeight:700,
+                            }}>1</Text>
+                        </View>
+                        <View style={{
+                            flexDirection:'row',
+                            width:100,
+                            height:30,
+                            backgroundColor:'#c2c2c6',
+                            
+                            justifyContent:'center',
+                            alignItems:'center',
+                            borderRadius:10,
+                            marginRight:-25,
+                        }}>
+                            <TouchableOpacity style={{
+                                paddingHorizontal:10,
+                                
+                            }}>
+                                    <Text style={{
+                                        fontSize:20,
+                                    }}>
+                                        --
+                                    </Text>
+                            </TouchableOpacity>
+                                <Text style={{
+                                     fontSize:20,
+                                     color:'#94949e'
+                                }}> | </Text>
+                            <TouchableOpacity style={{
+                                paddingHorizontal:10,
+                            }}>
+                                    <Text style={{
+                                         fontSize:20,
+                                    }}>
+                                        +
+                                    </Text>
+                            </TouchableOpacity>
+
+                        </View>
+                </View>
+            </View>
+            {/* img2 */}
+            <View>
+                    
+                    <View style={{
+                    marginTop:150,
+                    width:'100%',
+                    height:70,
+                    borderTopWidth:1,
+                    borderTopColor:'#c2c2c6',
+                   
+                    
+                    
+                }}>
+                    <View style={{
+                        flexDirection:'row',
+                        justifyContent:'space-between',
+                        marginBottom:12,
+                        }}>
+                        <Text style={{
+                            marginLeft:20,
+                            fontSize:14,
+                            color:'#888',
+                            marginTop:20,
+                            
+                        }}>
+                            
+                            Total Price
+                        </Text>
+                        <TouchableOpacity
+                    onPress={() => navigation.navigate()}
+                    style={{
+                        justifyContent: 'center',
+                        marginTop: 12,
+                        width: "40%", height: 48,
+                        backgroundColor: "#1D3A3A", borderRadius: 8,
+                    }}
+                >
+                    <Text
+                        style={{
+                            textAlign: "center",
+                            color: "#fff", fontSize: 18, fontWeight: 'bold',
+                        }}
+                    >
+                        Order Now (2)
+                    </Text>
+                </TouchableOpacity>
+                    </View>
+                    <View style={{
+                        marginLeft:20,
+                        
+                        
+                      }}>
+                                
+                        
+                        <Text style={{
+                            color:'#333',
+                            fontSize:22,
+                            marginTop:-29,
+                            fontWeight:700,
+                        }}>
+                        $ 500.000
+                        </Text>
+                       
+                    </View>
+                    
+
+                  </View>
+                </View>
+
         </View>
     );
 }

@@ -15,7 +15,7 @@ export default function CategoryScreen({ navigation }) {
         <SafeAreaView style={{
             marginTop: 20,
         }}>
-            <Header navigation={navigation} />
+            <Header navigation={navigation} title='Women' />
             <View style={{
                 marginTop: 120,
             }}>

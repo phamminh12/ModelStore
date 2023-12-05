@@ -73,7 +73,7 @@ function Home() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ShippingInfo" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Slide" component={SlideScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
@@ -88,6 +88,10 @@ export default function App() {
         <Stack.Screen name="DetailsCard" component={DetailsCardScreen}/>
         <Stack.Screen name="PaymentCard" component={PaymentCardScreen}/>
         <Stack.Screen name="ShippingInfo" component={ShippingInfoScreen}/>
+        <Stack.Screen name="Wishlist" component={WishlistScreen}/>
+        <Stack.Screen name="Cart" component={CartScreen}/>
+        <Stack.Screen name="Profile" component={ProfileScreen}/>
+
       </Stack.Navigator>
     </NavigationContainer>
 

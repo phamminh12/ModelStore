@@ -26,15 +26,11 @@ function Header ({navigation,title}) {
             <Text style={{
                 fontSize: 24, fontWeight: 'bold',
             }}>{title}</Text>
-            <TouchableOpacity style={styler.button}
-                onPress={()=>navigation.navigate('Search')}
-            >
-                <Ionicons
-                    name = "search-outline"
-                    color = "#888"
-                    size={32}
-                />
-            </TouchableOpacity>
+           <View style={{
+            width:32,
+           }}>
+
+           </View>
         </View>
     );
 }
