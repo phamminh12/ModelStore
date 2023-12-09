@@ -19,7 +19,7 @@ export default function NewArrivalScreen({ navigation }) {
             flex: 1,
             marginTop: 40, paddingLeft: 12,
         }}>
-            <HeaderCart navigation={navigation} title='New Arrival' />
+            <HeaderCart back={()=>navigation.navigate("List")} navigation={navigation} title='New Arrival' />
             <View style={{
                 marginTop: 80,
             }}>
@@ -118,7 +118,9 @@ export default function NewArrivalScreen({ navigation }) {
                             vertical
                             data={[1, 1, 1]}
                             renderItem={({ item }) => (
-                                <TouchableOpacity style={[styler.itemArrival, { height: 256, }]}>
+                                <TouchableOpacity style={[styler.itemArrival, { height: 256, }]}
+                                    onPress ={()=>navigation.navigate('Product')}
+                                >
                                     <Image
                                         source={require('../assets/img/shirtwomen3.jpg')}
                                         style={styler.imageItemArrival}

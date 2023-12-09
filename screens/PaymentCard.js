@@ -12,7 +12,7 @@ import Header0 from '../components/Header0';
 export default function PaymentCardScreen ({navigation}) {
     return (
         <View>
-            <Header0 navigation={navigation} title='Payment Card' />
+            <Header0 back={()=>navigation.navigate('Checkout')} navigation={navigation} title='Payment Card' />
             <View style={{
                 height:80,
             }}>
@@ -183,7 +183,7 @@ export default function PaymentCardScreen ({navigation}) {
                 }}
             >
                 <TouchableOpacity
-                    onPress={() => navigation.navigate()}
+                    onPress={() => alert('Coming Soon')}
                     style={{
                         justifyContent: 'center',
                         marginTop: 12,

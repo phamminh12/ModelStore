@@ -16,7 +16,9 @@ function Header ({navigation,title}) {
             marginTop: 24, marginHorizontal: 12,
             zIndex: 3,
         }}>
-            <TouchableOpacity style={styler.button}>
+            <TouchableOpacity style={styler.button}
+                onPress={() => navigation.navigate("Home")}
+            >
                 <Ionicons
                     name = "chevron-back"
                     color = "#888"

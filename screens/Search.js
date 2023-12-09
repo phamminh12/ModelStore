@@ -20,7 +20,9 @@ function SearchScreen({ navigation, title }) {
                 marginTop: 24, marginHorizontal: 12,
                 zIndex: 3,
             }}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={()=>navigation.navigate('Category')}
+                >
                     <Ionicons
                         name="chevron-back"
                         color="#888"

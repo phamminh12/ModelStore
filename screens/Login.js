@@ -22,7 +22,8 @@ export default function LoginScreen({ navigation }) {
                     justifyContent: "space-between",
                 }}
             >
-                <Ionicons name="arrow-back" size={24} color="#666" />
+                <TouchableOpacity>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                     <Text
                         style={{
@@ -104,14 +105,14 @@ export default function LoginScreen({ navigation }) {
                     }}
                 >
                     <View style={{
-                        flexDirection: 'row', 
+                        flexDirection: 'row',
                     }}>
                         <Ionicons
                             name="checkbox-outline"
                             size={20}
                             color="rgba(174, 128, 36, 1)"
                         />
-                        <View style={{width: 12}}></View>
+                        <View style={{ width: 12 }}></View>
                         <Text style={{
                             fontSize: 15,
                             color: "#666",

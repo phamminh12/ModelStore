@@ -17,7 +17,7 @@ export default function ListScreen({ navigation }) {
             flex: 1,
             marginTop: 40, paddingLeft: 12,
         }}>
-            <HeaderCart navigation={navigation} title='Shirt' />
+            <HeaderCart back={()=>navigation.navigate("Category")} navigation={navigation} title='Shirt' />
             <View style={{
                 marginTop: 80,
             }}>

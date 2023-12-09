@@ -226,7 +226,9 @@ export default function ProductScreen({ navigation }) {
                 <TouchableOpacity style={styler.btnTool}>
                     <Ionicons name ="chatbox-outline" size={28} color='rgba(160, 120, 36, 1)'/>
                 </TouchableOpacity>
-                <TouchableOpacity style={styler.btnTool}>
+                <TouchableOpacity style={styler.btnTool}
+                    onPress = {()=>navigation.navigate('Cart')}
+                >
                     <Ionicons name ="cart-outline" size={28} color='rgba(160, 120, 36, 1)'/>
                 </TouchableOpacity>
                 <TouchableOpacity style={{
@@ -234,7 +236,9 @@ export default function ProductScreen({ navigation }) {
                     width: 250,
                     backgroundColor: 'rgba(55, 82, 70, 1)',
                     borderRadius: 12,
-                }}>
+                }}
+                    onPress = {()=>navigation.navigate("Checkout")}
+                >
                     <Text style={{
                         color: '#eee', fontWeight: 'bold', fontSize: 20,
                     }}>

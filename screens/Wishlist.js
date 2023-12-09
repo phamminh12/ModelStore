@@ -25,14 +25,13 @@ export default function WishlistScreen({ navigation }) {
                 }}>
                     Wishlist
                 </Text>
-                <TouchableOpacity style={{
-
-                }}>
+                <TouchableOpacity 
+                    onPress = {() => navigation.navigate('Cart')}
+                >
                     <Ionicons
                         name="cart-outline"
                         color="#888"
                         size={30}
-
                     />
                 </TouchableOpacity>
             </View>
@@ -68,7 +67,7 @@ export default function WishlistScreen({ navigation }) {
 
                             <Text style={{
                                 color: '#333',
-                                fontSize: 19,
+                                fontSize: 18,
                                 marginBottom: 10,
 
                             }}>
@@ -83,21 +82,20 @@ export default function WishlistScreen({ navigation }) {
                                     flexDirection: 'row',
                                     marginRight: 10
                                 }}>
-                                    <Ionicons
-                                        name='star'
-                                        color={'orange'}
-                                        size={8}
-                                    />
                                     <Text style={{
-                                        fontSize: 8,
+                                        fontSize: 12,
                                         color: '#999'
                                     }}>
-                                        4.9
+                                        <Ionicons
+                                            name='star'
+                                            color={'orange'}
+                                            size={12}
+                                        /> 4.9
                                     </Text>
                                 </View>
                                 <View>
                                     <Text style={{
-                                        fontSize: 8,
+                                        fontSize: 12,
                                         color: '#999'
                                     }}>
                                         400 Sold
@@ -132,13 +130,7 @@ export default function WishlistScreen({ navigation }) {
                         </View>
                         <View>
                             <View>
-
-                                <View style={{
-
-
-
-
-                                }}>
+                                <View >
                                     <View style={{
                                         flexDirection: 'row',
                                         justifyContent: 'space-between',
@@ -146,7 +138,7 @@ export default function WishlistScreen({ navigation }) {
                                     }}>
 
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate()}
+                                            onPress={() => navigation.navigate('Cart')}
                                             style={{
                                                 justifyContent: 'center',
                                                 marginTop: -5,
@@ -209,7 +201,7 @@ export default function WishlistScreen({ navigation }) {
 
                             <Text style={{
                                 color: '#333',
-                                fontSize: 19,
+                                fontSize: 18,
                                 marginBottom: 10,
 
                             }}>
@@ -227,10 +219,10 @@ export default function WishlistScreen({ navigation }) {
                                     <Ionicons
                                         name='star'
                                         color={'orange'}
-                                        size={8}
+                                        size={12}
                                     />
                                     <Text style={{
-                                        fontSize: 8,
+                                        fontSize: 12,
                                         color: '#999'
                                     }}>
                                         4.9
@@ -238,7 +230,7 @@ export default function WishlistScreen({ navigation }) {
                                 </View>
                                 <View>
                                     <Text style={{
-                                        fontSize: 8,
+                                        fontSize: 12,
                                         color: '#999'
                                     }}>
                                         400 Sold
@@ -287,7 +279,7 @@ export default function WishlistScreen({ navigation }) {
                                     }}>
 
                                         <TouchableOpacity
-                                            onPress={() => navigation.navigate()}
+                                            onPress={() => navigation.navigate('Cart')}
                                             style={{
                                                 justifyContent: 'center',
                                                 marginTop: -5,

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-function Header ({ navigation, title}) {
+function Header ({back, navigation, title}) {
     return(
         <View style={{
             position: 'absolute', top: 0,
@@ -16,7 +16,9 @@ function Header ({ navigation, title}) {
             marginTop: 24, marginHorizontal: 12,
             zIndex: 3,
         }}>
-            <TouchableOpacity style={styler.button}>
+            <TouchableOpacity style={styler.button}
+                onPress = {back}
+            >
                 <Ionicons
                     name = "chevron-back"
                     color = "#888"

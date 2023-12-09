@@ -17,7 +17,7 @@ export default function ShippingInfoScreen ({navigation}) {
             flex:1,
             paddingHorizontal:16 ,
         }}>
-           <Header0 navigation={navigation} title='Shipping Infomation' />
+           <Header0 back={()=>navigation.navigate('Checkout')} navigation={navigation} title='Shipping Infomation' />
            <View style={{
                 height:80,
             }}></View>

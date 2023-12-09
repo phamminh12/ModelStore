@@ -103,7 +103,9 @@ function HomeScreen({ navigation }) {
                     marginTop: 24,
                     width: '100%', height: 200,
                     borderRadius: 24, overflow: 'hidden'
-                }}>
+                }}
+                    onPress={() => navigation.navigate('Category')}
+                >
 
                     <ImageBackground
                         source={require('../assets/img/pic1.jpg')}

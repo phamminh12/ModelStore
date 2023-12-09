@@ -16,9 +16,7 @@ export default function RegisterScreen({ navigation }) {
             <View style={{
                 flexDirection: 'row', justifyContent: 'space-between',
             }}>
-                <Ionicons
-                    name="arrow-back" size={24} color='#666'
-                />
+                <TouchableOpacity></TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Login')}
                 >
@@ -165,7 +163,7 @@ export default function RegisterScreen({ navigation }) {
                     justifyContent: 'center',
                     backgroundColor: 'rgba(113, 86, 56, 1)',
                     borderRadius: 12,
-                }} onPress={()=>navigation.navigate('Home')}>
+                }} onPress={() => navigation.navigate('Home')}>
                     <Text style={{
                         textAlign: 'center',
                         fontWeight: 'bold', color: '#fff',

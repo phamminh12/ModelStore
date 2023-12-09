@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -6,12 +6,24 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function CartScreen({ navigation }){
-    return(
+export default function CartScreen({ navigation }) {
+    const box = <FontAwesome5 name="square" size={25} color="#C9B686" />;
+    const checkbox = <Ionicons name='checkbox-outline' size={22} color={'#C9B686'}/>;
+    const [check, setCheck] = useState(0);
+    const [checkItem1, setCheckItem1] = useState(0);
+    const [checkItem2, setCheckItem2] = useState(0);
+    useEffect(()=> {
+        if (checkItem1 == 1 && checkItem2 == 1){
+            setCheck(1);
+        }
+    });
+
+    return (
         <View style={{
-            flex:1,
-            paddingHorizontal:16 ,
+            flex: 1,
+            paddingHorizontal: 16,
         }}>
             <View style={{
                 flexDirection: 'row',
@@ -26,9 +38,9 @@ export default function CartScreen({ navigation }){
                 }}>
                     Cart
                 </Text>
-                <TouchableOpacity style={{
-
-                }}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Wishlist')}
+                >
                     <Ionicons
                         name="heart"
                         color="red"
@@ -41,346 +53,351 @@ export default function CartScreen({ navigation }){
                 marginBottom: 20,
             }}></View>
             <View style={{
-                width:'100%',
-                flexDirection:'row',
-                justifyContent:'space-between',
-                borderBottomWidth:4,
-                borderBottomColor:'#EFEFF0'
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                borderBottomWidth: 4,
+                borderBottomColor: '#EFEFF0'
 
             }}>
                 <View style={{
-                    flexDirection:'row',
-                    paddingHorizontal:20
+                    flexDirection: 'row',
+                    paddingHorizontal: 20
                 }}>
-                    <TouchableOpacity style={{
-                        marginRight:10,
+                    <TouchableOpacity 
+                        onPress = {() => {
+                            if (check == 1){
+                                setCheck(0);
+                                setCheckItem1(0);
+                                setCheckItem2(0);
+                            } else {
+                                setCheck(1);
+                                setCheckItem1(1);
+                                setCheckItem2(1);
+                            }
+                        }}
+                        style={{
+                            marginRight: 10,
                     }}>
-                        <Ionicons 
-                        name='checkbox-outline'
-                        size={22}
-                        color={'#C9B686'}
-                        
-                        />
+                        {check === 1 ? checkbox : box} 
                     </TouchableOpacity>
-                    <Text>
-                    Select All
+                    <Text style={{
+                        fontSize: 16,
+                    }}>
+                        Select All
                     </Text>
                 </View>
-                <View style={{
-                    marginRight:20,
-                    marginBottom:20,
-                }}> 
+                <TouchableOpacity style={{
+                    marginRight: 20,
+                    marginBottom: 20,
+                }}>
                     <Text style={{
-                        fontSize:17,
-                        fontWeight:'bold',
-                        color:'red',
-                        
+                        fontSize: 17,
+                        fontWeight: 'bold',
+                        color: 'red',
+
                     }}>
                         Delete All
                     </Text>
-                </View>
-               
+                </TouchableOpacity>
+
 
             </View>
             {/* img */}
             <View style={{
-                
-               marginTop:20,
-                width:'90%'
+
+                marginTop: 20,
+                width: '90%'
             }}>
                 <View style={{
-                    flexDirection:'row',
-                    marginLeft:22,
-                    
-                }}> 
-                <TouchableOpacity style={{
-                       
-                    }}>
-                        <Ionicons 
-                        name='checkbox-outline'
-                        size={22}
-                        color={'#C9B686'}
-                        
-                        />
+                    flexDirection: 'row',
+                    marginLeft: 22,
+
+                }}>
+                    <TouchableOpacity 
+                        onPress = {()=> {
+                            if (checkItem1 == 1){
+                                setCheckItem1(0);
+                                setCheck(0);
+                            } else {
+                                setCheckItem1(1);
+                            }
+                        }}
+                    >
+                        {checkItem1 === 1 ? checkbox : box}
                     </TouchableOpacity>
                     <Image source={require('../assets/img/shirtwomen3.jpg')} style={{
-                        resizeMode:'contain',
-                        width:100,
-                        height:100,
-                        marginHorizontal:20,
-
-                    }}/>
+                        resizeMode: 'contain',
+                        width: 100,
+                        height: 100,
+                        marginHorizontal: 20,
+                    }} />
                     <View style={{
-                        width:'70%'
+                        width: '70%'
                     }}>
                         <Text style={{
-                            fontSize:16,
-                            fontWeight:600,
-                            height:46,
+                            fontSize: 16,
+                            fontWeight: 600,
+                            height: 46,
                         }}>
-                        Ripped Jeans - Hopped Bean London Limited Edition
+                            Ripped Jeans - Hopped Bean London Limited Edition
                         </Text>
                         <Text style={{
-                            color:'#888',
-                            height:30,
+                            color: '#888',
+                            height: 30,
                         }}>
-                        Space Grey (36)
+                            Space Grey (36)
                         </Text>
                         <Text style={{
-                            color:'#333',
-                            fontSize:19,
+                            color: '#333',
+                            fontSize: 19,
 
                         }}>
-                        $ 500.000
+                            $ 500.000
                         </Text>
                     </View>
 
                 </View>
                 <View style={{
-                    flexDirection:'row',
-                    justifyContent:'space-between',
-                    marginTop:15,
-                    marginBottom:25,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginTop: 15,
+                    marginBottom: 25,
                 }}>
-                        <View style={{
-                            flexDirection:'row',
-                            
+                    <View style={{
+                        flexDirection: 'row',
+
+
+                    }}>
+                        <Text style={{
+                            color: '#c2c2c1',
+                            fontSize: 19,
+                            marginLeft: 65,
+                        }}>
+                            Quantity :
+                        </Text>
+                        <Text style={{
+                            fontSize: 19,
+                            fontWeight: 700,
+                        }}>1</Text>
+                    </View>
+                    <View style={{
+                        flexDirection: 'row',
+                        width: 100,
+                        height: 30,
+                        backgroundColor: '#c2c2c6',
+
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: 10,
+                        marginRight: -25,
+                    }}>
+                        <TouchableOpacity style={{
+                            paddingHorizontal: 10,
 
                         }}>
                             <Text style={{
-                                color:'#c2c2c1',
-                                fontSize:19,
-                                marginLeft:65,
+                                fontSize: 20,
                             }}>
-                              Quantity : 
+                                --
                             </Text>
-                            <Text style={{
-                                fontSize:19,
-                                fontWeight:700,
-                            }}>1</Text>
-                        </View>
-                        <View style={{
-                            flexDirection:'row',
-                            width:100,
-                            height:30,
-                            backgroundColor:'#c2c2c6',
-                            
-                            justifyContent:'center',
-                            alignItems:'center',
-                            borderRadius:10,
-                            marginRight:-25,
+                        </TouchableOpacity>
+                        <Text style={{
+                            fontSize: 20,
+                            color: '#94949e'
+                        }}> | </Text>
+                        <TouchableOpacity style={{
+                            paddingHorizontal: 10,
                         }}>
-                            <TouchableOpacity style={{
-                                paddingHorizontal:10,
-                                
+                            <Text style={{
+                                fontSize: 20,
                             }}>
-                                    <Text style={{
-                                        fontSize:20,
-                                    }}>
-                                        --
-                                    </Text>
-                            </TouchableOpacity>
-                                <Text style={{
-                                     fontSize:20,
-                                     color:'#94949e'
-                                }}> | </Text>
-                            <TouchableOpacity style={{
-                                paddingHorizontal:10,
-                            }}>
-                                    <Text style={{
-                                         fontSize:20,
-                                    }}>
-                                        +
-                                    </Text>
-                            </TouchableOpacity>
+                                +
+                            </Text>
+                        </TouchableOpacity>
 
-                        </View>
+                    </View>
                 </View>
             </View>
             {/* img1 */}
             {/* img2 */}
             <View style={{
-                
-                
-                width:'90%'
+
+
+                width: '90%'
             }}>
                 <View style={{
-                    flexDirection:'row',
-                    marginLeft:22,
-                    
-                }}> 
-                <TouchableOpacity style={{
-                       
-                    }}>
-                        <Ionicons 
-                        name='checkbox-outline'
-                        size={22}
-                        color={'#C9B686'}
-                        
-                        />
+                    flexDirection: 'row',
+                    marginLeft: 22,
+
+                }}>
+                    <TouchableOpacity 
+                        onPress = {()=> {
+                            if (checkItem2 == 1){
+                                setCheckItem2(0);
+                                setCheck(0);
+                            } else {
+                                setCheckItem2(1);
+                            }
+                        }}
+                    >
+                        {checkItem2 === 1 ? checkbox : box}
                     </TouchableOpacity>
                     <Image source={require('../assets/img/shirtwomen3.jpg')} style={{
-                        resizeMode:'contain',
-                        width:100,
-                        height:100,
-                        marginHorizontal:20,
+                        resizeMode: 'contain',
+                        width: 100,
+                        height: 100,
+                        marginHorizontal: 20,
 
-                    }}/>
+                    }} />
                     <View style={{
-                        width:'70%'
+                        width: '70%'
                     }}>
                         <Text style={{
-                            fontSize:16,
-                            fontWeight:600,
-                            height:46,
+                            fontSize: 16,
+                            fontWeight: 600,
+                            height: 46,
                         }}>
-                        Ripped Jeans - Hopped Bean London Limited Edition
+                            Ripped Jeans - Hopped Bean London Limited Edition
                         </Text>
                         <Text style={{
-                            color:'#888',
-                            height:30,
+                            color: '#888',
+                            height: 30,
                         }}>
-                        Space Grey (36)
+                            Space Grey (36)
                         </Text>
                         <Text style={{
-                            color:'#333',
-                            fontSize:19,
+                            color: '#333',
+                            fontSize: 19,
 
                         }}>
-                        $ 500.000
+                            $ 500.000
                         </Text>
                     </View>
 
                 </View>
                 <View style={{
-                    flexDirection:'row',
-                    justifyContent:'space-between',
-                    marginTop:15,
-                    marginBottom:25,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginTop: 15,
+                    marginBottom: 25,
                 }}>
-                        <View style={{
-                            flexDirection:'row',
-                            
+                    <View style={{
+                        flexDirection: 'row',
+
+
+                    }}>
+                        <Text style={{
+                            color: '#c2c2c1',
+                            fontSize: 19,
+                            marginLeft: 65,
+                        }}>
+                            Quantity :
+                        </Text>
+                        <Text style={{
+                            fontSize: 19,
+                            fontWeight: 700,
+                        }}>1</Text>
+                    </View>
+                    <View style={{
+                        flexDirection: 'row',
+                        width: 100,
+                        height: 30,
+                        backgroundColor: '#c2c2c6',
+
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: 10,
+                        marginRight: -25,
+                    }}>
+                        <TouchableOpacity style={{
+                            paddingHorizontal: 10,
 
                         }}>
                             <Text style={{
-                                color:'#c2c2c1',
-                                fontSize:19,
-                                marginLeft:65,
+                                fontSize: 20,
                             }}>
-                              Quantity : 
+                                --
                             </Text>
-                            <Text style={{
-                                fontSize:19,
-                                fontWeight:700,
-                            }}>1</Text>
-                        </View>
-                        <View style={{
-                            flexDirection:'row',
-                            width:100,
-                            height:30,
-                            backgroundColor:'#c2c2c6',
-                            
-                            justifyContent:'center',
-                            alignItems:'center',
-                            borderRadius:10,
-                            marginRight:-25,
+                        </TouchableOpacity>
+                        <Text style={{
+                            fontSize: 20,
+                            color: '#94949e'
+                        }}> | </Text>
+                        <TouchableOpacity style={{
+                            paddingHorizontal: 10,
                         }}>
-                            <TouchableOpacity style={{
-                                paddingHorizontal:10,
-                                
+                            <Text style={{
+                                fontSize: 20,
                             }}>
-                                    <Text style={{
-                                        fontSize:20,
-                                    }}>
-                                        --
-                                    </Text>
-                            </TouchableOpacity>
-                                <Text style={{
-                                     fontSize:20,
-                                     color:'#94949e'
-                                }}> | </Text>
-                            <TouchableOpacity style={{
-                                paddingHorizontal:10,
-                            }}>
-                                    <Text style={{
-                                         fontSize:20,
-                                    }}>
-                                        +
-                                    </Text>
-                            </TouchableOpacity>
+                                +
+                            </Text>
+                        </TouchableOpacity>
 
-                        </View>
+                    </View>
                 </View>
             </View>
             {/* img2 */}
             <View>
-                    
-                    <View style={{
-                    marginTop:150,
-                    width:'100%',
-                    height:70,
-                    borderTopWidth:1,
-                    borderTopColor:'#c2c2c6',
-                   
-                    
-                    
+
+                <View style={{
+                    marginTop: 150,
+                    width: '100%',
+                    height: 70,
+                    borderTopWidth: 1,
+                    borderTopColor: '#c2c2c6',
                 }}>
                     <View style={{
-                        flexDirection:'row',
-                        justifyContent:'space-between',
-                        marginBottom:12,
-                        }}>
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginBottom: 12,
+                    }}>
                         <Text style={{
-                            marginLeft:20,
-                            fontSize:14,
-                            color:'#888',
-                            marginTop:20,
-                            
+                            marginLeft: 20,
+                            fontSize: 14,
+                            color: '#888',
+                            marginTop: 20,
+
                         }}>
-                            
+
                             Total Price
                         </Text>
                         <TouchableOpacity
-                    onPress={() => navigation.navigate()}
-                    style={{
-                        justifyContent: 'center',
-                        marginTop: 12,
-                        width: "40%", height: 48,
-                        backgroundColor: "#1D3A3A", borderRadius: 8,
-                    }}
-                >
-                    <Text
-                        style={{
-                            textAlign: "center",
-                            color: "#fff", fontSize: 18, fontWeight: 'bold',
-                        }}
-                    >
-                        Order Now (2)
-                    </Text>
-                </TouchableOpacity>
+                            onPress={() => navigation.navigate('Checkout')}
+                            style={{
+                                justifyContent: 'center',
+                                marginTop: 12,
+                                width: "40%", height: 48,
+                                backgroundColor: "#1D3A3A", borderRadius: 8,
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    textAlign: "center",
+                                    color: "#fff", fontSize: 18, fontWeight: 'bold',
+                                }}
+                            >
+                                Order Now (2)
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={{
-                        marginLeft:20,
-                        
-                        
-                      }}>
-                                
-                        
+                        marginLeft: 20,
+                    }}>
                         <Text style={{
-                            color:'#333',
-                            fontSize:22,
-                            marginTop:-29,
-                            fontWeight:700,
+                            color: '#333',
+                            fontSize: 22,
+                            marginTop: -29,
+                            fontWeight: 700,
                         }}>
-                        $ 500.000
+                            $ 500.000
                         </Text>
-                       
-                    </View>
-                    
 
-                  </View>
+                    </View>
+
+
                 </View>
+            </View>
 
         </View>
     );

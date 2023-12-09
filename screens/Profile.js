@@ -42,7 +42,9 @@ export default function ProfileScreen({ navigation }) {
                     />
                     
                 </TouchableOpacity>
-                <TouchableOpacity style={{
+                <TouchableOpacity 
+                    onPress = {()=> navigation.navigate('Cart')}
+                    style={{
                 }}>                 
                     <Ionicons
                         name="cart-outline"
